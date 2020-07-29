@@ -1,0 +1,30 @@
+<h1>Редактировать {{test.title}}</h1>
+
+<form action="/tests/edit" method="POST" class="testForm">
+    <div class="input-field">
+        <input  id="title" type="text" name="title" class="validate" required value="{{test.title}}">
+        <label for="title">Название теста</label>
+        <span class="helper-text" data-error="Введите название"></span>
+    </div>
+    <div class="input-field">
+        <input  id="price" type="number" name="price" class="validate" required min="1" value="{{test.price}}"> 
+        <label for="price">Цена теста</label>
+        <span class="helper-text" data-error="Введите цену"></span>
+    </div>
+    <div class="input-field col s6">
+        <input  id="img" type="text" name="img" class="validate" required value="{{test.img}}">
+        <label for="img">URL картинки</label>
+        <span class="helper-text" data-error="Введите URL"></span>
+    </div>
+
+    <input type="hidden" name="id" value="{{test.id}}">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+
+    <button type="submit" class="btn btn-primary">Редактировать курс</button>
+</form> 
+
+<form action="/tests/remove" method="POST">
+    <input type="hidden" name="id" value="{{test.id}}">
+    <button class="btn red">Удалить тест</button>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+</form>
